@@ -86,7 +86,7 @@ Now let's put a 10k resistor named R2 on HWB/PE2 pin and connect it to ground. W
 
 Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library and call it J1. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors R3 and R4 between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. Also, add decoupling capacitors for VUSB, with the largest value on the left (TODOOOOOOOOOOO explain why, datasheet yada yada). And lastly, put a 1uF capacitor C8 between UCap and GND (TODOTODOTODOTODOTODOTODOTODOTODOTODO justify):
 
-![usb](pics/usb.png)
+![usb](pics/usb.PNG)
 
 You can also add labels to make the routing easier later.
 
