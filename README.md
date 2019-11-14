@@ -1,3 +1,6 @@
+# TODO
+Verifier ports style C7 qui sont utilisables sur l'ATMEGA mais pas sur le pro micro - QMK les accepte-t-il ?
+
 # Keyboard PCB Guide
 
 So you want to make a PCB for a keyboard? Don't know where or how to start? Well you've come to the right place!
@@ -137,18 +140,19 @@ We're going to assume that all of our capacitors and resistors are 0805 imperial
 Save the assocations and close the window.
 
 ## Perform electrical rules check
-Clock on the bug icon in the toolbar (![bug](pics/bug.png)) and run the checker to check that everything is wired correctly. If the checker finds some errors like a pin unconnected, fix them before going on to the PCB. 
+Clock on the bug icon in the toolbar (![bug](pics/bug.PNG)) and run the checker to check that everything is wired correctly. If the checker finds some errors like a pin unconnected, fix them before going on to the PCB. 
 
 ## PCB
 
-From the schematic editor, create a new PCB layout using the toolbar button ![pcb](pics/pcb.png). Kicad will ask you if you wish to create a PCB, click Yes.
+From the schematic editor, create a new PCB layout using the toolbar button ![pcb](pics/pcb.PNG). Kicad will ask you if you wish to create a PCB, click Yes.
 Now we get to create our PCB! You should be greeted by a blank PCB editor:
 
 ![blank pcb editor](https://puu.sh/tlLju/b9d3e1f917.png)
 
 The first thing we're going to do is double check that all of our footprints are still here. Go to Preferences > Footprint Libraries Manager and make sure that all the footprint libraries you imported earlier are still there. If not, then simply import them again.
 
-The easiest way to get all our footprints onto the board is to read the netlist we generated earlier. Click on the netlist button, which should look the same as before, and simply click on "Read Current Netlist". A bunch of messages should show up, and the dialog should look something like:
+TODO Cannot update the PCB because PCBNew is running in standalone mode
+The easiest way to get all our footprints onto the board is to read the netlist we generated earlier. Click on the `Update PCB from schematic` button (![update](pics/update.PNG)). A bunch of messages should show up, and the dialog should look something like:
 
 ![read netlist](https://puu.sh/tlLxe/db0c0985c2.png)
 
