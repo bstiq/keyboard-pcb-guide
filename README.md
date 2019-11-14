@@ -114,7 +114,7 @@ Now let's build our switch matrix. For the purposes of this guide, we're simply 
 
 Now we want to connect this matrix to the controller. We'll use labels for ease (A with a green line underneath on the right). For our example board, we'll use PF0 for row0, PF1 for row1, PF4 for col0, and PF5 for col1:
 
-![matrix controller](https://puu.sh/tlJZ1/1b38e0274b.png)
+![ucap](pics/rowcols1.PNG) ![ucap](pics/rowcols2.PNG)
 
 Finally, let's label all the unused pins as not connected with the no connect tool (blue X on the right), click on all the unconnected pins on the controller. This is also a good chance to make sure you didn't miss any VCC or GND pins earlier! Our final schematic should look like this:
 
