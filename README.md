@@ -91,6 +91,7 @@ Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyb
 Add labels ending with plus and minus to enable differential pair routing later.
 
 According to the datasheet, UCAP is the Internal Regulator Output supply voltage, and should be connected to ground via a 1uF capacitor. Place it as well:
+
 ![ucap](pics/ucap.PNG)
 
 Let's connect all the VCC connections together and all the GND connections together. Normally, you would place a capacitor between AVCC and VCC if you were using the built-in ADC (analog to digital converter), but we don't care about that for a keyboard, so just directly connect them. Here's what everything look like at this point:
