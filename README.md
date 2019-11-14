@@ -102,11 +102,11 @@ Don't forget to auto-annotate the schematic with the ![annot](pics/annotate.PNG)
 
 Then, add a connector (Conn_01x04) that will be enable us to flash the bootloader using ports PF4 to PF7 (refer to the `JTAG Interface and On-chip Debug System` of the datasheet for more information):
 
-![ucap](pics/jtag.PNG)
+![connector](pics/jtag.PNG)
 
 Here's what everything looks like at this point:
 
-![ucap](pics/total.PNG)
+![looking good](pics/total.PNG)
 
 Now let's build our switch matrix. For the purposes of this guide, we're simply making a nice and easy 2x2 matrix. We're going to want to use the `KEYSW` and `D` components for our switch and diode components, respectively. Just connect them like you would a handwired board, and don't forget to name them. K1 should correspond to D1, K2 should correspond to D2, and so on:
 
@@ -114,7 +114,7 @@ Now let's build our switch matrix. For the purposes of this guide, we're simply 
 
 Now we want to connect this matrix to the controller. We'll use labels for ease (A with a green line underneath on the right). For our example board, we'll use PF0 for row0, PF1 for row1, PF4 for col0, and PF5 for col1:
 
-![ucap](pics/rowcols2.PNG) ![ucap](pics/rowcols1.PNG) 
+![row1](pics/rowcols2.PNG) ![row2](pics/rowcols1.PNG) 
 
 Finally, let's label all the unused pins as not connected with the no connect tool (blue X on the right), click on all the unconnected pins on the controller. This is also a good chance to make sure you didn't miss any VCC or GND pins earlier! Our final schematic should look like this:
 
@@ -128,7 +128,7 @@ We have to tell KiCad what each of these components means. Click on the icon for
 
 If this is your first time running CvPcb, we're going to need to add the footprint libraries we downloaded earlier. Click Preferences > Footprint Libraries, and in the window that shows up, use the "Append with Wizard" button to add the "keebs.pretty" and "keyboard_parts.pretty" folders that we downloaded earlier. You may also need to manually add the built-in KiCad libraries. Your list of libraries should look something like this now:
 
-![footprint libraries](https://puu.sh/tlKR8/ca939bc6aa.png)
+![footprints](pics/footprints.PNG) 
 
 We're going to assume that all of our capacitors and resistors are 0805 imperial size. Our ATmega32U4 is going to be in a TQFN package. We're going to use the very handy hybrid through-hole and surface mount footprint from Hasu's library for our diodes. Switches are going to be /u/techieee's 1u switch footprint. The crystal will be an FA-238 series crystal. The reset button will be a TL3442 series button, and the USB mini B port will be a Hirose 5S8 connector. For each component, go through the list of footprints and double click on one to associate it with the currently selected component. Here's what all the associations should end up looking like:
 
