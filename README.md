@@ -31,7 +31,7 @@ Download all of these and we should be good to go!
 Make sure you also have the official KiCad libraries as well. Those should be included with your KiCad installation.
 
 ## Datasheet
-We're going to be using an ATMEGA32U$, so you want to look up the datasheet on the official website https://www.microchip.com/wwwproducts/en/ATmega32u4
+We're going to be using an ATMEGA32U4, so you want to look up the datasheet on the official website https://www.microchip.com/wwwproducts/en/ATmega32u4
 
 ## Schematics
 
@@ -68,7 +68,7 @@ Click OK, then click on the schematic sheet again to place the component. This i
 
 The next part we'll want to place is the crystal, which is the part that tells the controller how fast to run. Look for the `XTAL_GND` component and place it next to the controller.
 
-Next, we're going to want to add 2 decoupling capacitors (`C_SMALL`). These capacitors will basically help prevent the signal to the controller from accumulating too much noise. There's a formula for determining the capacitance you need for these capacitors, but for now, we'll use a crystal with 18pF load capacitance, so these decoupling capacitors will be 22pF. Also add a GND symbol to represent ground, and connect everything using the wire tool (green line on the right) like so:
+Next, we're going to want to add 2 decoupling capacitors (`C_SMALL`). These capacitors will basically work with the crystal to create a filter. There's a formula for determining the capacitance you need for these capacitors, but for now, we'll use a crystal with 18pF load capacitance, so these decoupling capacitors will be 22pF. Also add a GND symbol to represent ground, and connect everything using the wire tool (green line on the right) like so:
 
 ![crystal](https://puu.sh/tlHHo/8621b549c2.png)
 
@@ -88,7 +88,7 @@ Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyb
 
 ![usb](pics/usb.PNG)
 
-You can also add labels to make the routing easier later.
+Add labels ending with plus and minus to enable differential pair routing later.
 
 Let's connect all the VCC connections together and all the GND connections together. Normally, you would place a capacitor between AVCC and VCC if you were using the built-in ADC (analog to digital converter), but we don't care about that for a keyboard, so just directly connect them. Here's what everything look like at this point:
 
