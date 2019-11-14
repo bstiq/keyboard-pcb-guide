@@ -136,17 +136,13 @@ We're going to assume that all of our capacitors and resistors are 0805 imperial
 
 Save the assocations and close the window.
 
-## Generating Netlist
-
-Now we want to generate the netlist, which is essentially a list of connections in our schematic. Click on the netlist button:
-
-![netlist button](https://puu.sh/tlL9i/077c92b75c.png)
-
-In the dialog that opens, simply click "Generate". Use the default netlist name in the save dialog. If everything was laid out and named properly, KiCad should not ask you about annotations. If so, click "Cancel" and double check all of your references then try again.
+## Perform electrical rules check
+Clock on the bug icon in the toolbar (![bug](pics/bug.png)) and run the checker to check that everything is wired correctly. If the checker finds some errors like a pin unconnected, fix them before going on to the PCB. 
 
 ## PCB
 
-Now we get to create our PCB! Save and close out of the schematic editor. Then, go back to your project and open your ".kicad_pcb" file. You should be greeted by a blank PCB editor:
+From the schematic editor, create a new PCB layout using the toolbar button ![pcb](pics/pcb.png). Kicad will ask you if you wish to create a PCB, click Yes.
+Now we get to create our PCB! You should be greeted by a blank PCB editor:
 
 ![blank pcb editor](https://puu.sh/tlLju/b9d3e1f917.png)
 
