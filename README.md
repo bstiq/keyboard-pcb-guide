@@ -71,7 +71,7 @@ Next, we're going to want to add 2 decoupling capacitors (`C_SMALL`). These capa
 
 Next, we'll add decoupling capacitors for VCC, our power source. We will generally want one 0.1uF capacitor for each VCC/AVCC on the controller and one 4.7uF capacitor for UVcc. In our case, we want 4 0.1uF capacitors and 1 4.7uF capacitor, like so:
 
-![capacitors](https://puu.sh/tlI9L/24e8f9f8bb.png)
+![capacitors](pics/capacitors.png)
 
 Let's hook up a reset switch. For this, you'll want a switch (`SW_PUSH`) named SW1 and a 10k resistor for pullup (`R`) named R1. If you want to know why we want a pullup resistor and what a pullup resistor even means, [here](https://learn.sparkfun.com/tutorials/pull-up-resistors) is a good explanation from Sparkfun. But for now, here's how it should be hooked up:
 
