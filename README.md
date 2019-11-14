@@ -148,12 +148,6 @@ Now we get to create our PCB! You should be greeted by a blank PCB editor:
 
 The first thing we're going to do is double check that all of our footprints are still here. Go to Preferences > Footprint Libraries Manager and make sure that all the footprint libraries you imported earlier are still there. If not, then simply import them again.
 
-Next, we're going to set our grid. Click on Dimensions > Grid, and set Units to Inches and Size X and Size Y both to 0.09375, like so:
-
-![dimensions](https://puu.sh/tlLri/0a3f3e98d5.png)
-
-Then, we want to tell the PCB editor to use our user-defined grid. Change the grid option at the top to "User Grid".
-
 The easiest way to get all our footprints onto the board is to read the netlist we generated earlier. Click on the netlist button, which should look the same as before, and simply click on "Read Current Netlist". A bunch of messages should show up, and the dialog should look something like:
 
 ![read netlist](https://puu.sh/tlLxe/db0c0985c2.png)
