@@ -30,6 +30,9 @@ Download all of these and we should be good to go!
 
 Make sure you also have the official KiCad libraries as well. Those should be included with your KiCad installation.
 
+## Datasheet
+We're going to be using an ATMEGA32U$, so you want to look up the datasheet on the official website https://www.microchip.com/wwwproducts/en/ATmega32u4
+
 ## Schematics
 
 Start up KiCad and create a new project (File > New Project > New Project). Name the project whatever you want. For the purposes of this guide, I'll be calling it "example". Very creative, I know.
@@ -81,9 +84,11 @@ Now let's put a 10k resistor named R2 on HWB/PE2 pin and connect it to ground. W
 
 ![hwb](https://puu.sh/tlJ3y/fc56dc3b1a.png)
 
-Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library and call it J1. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors R3 and R4 between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. And lastly, put a 1uF capacitor C8 between UCap and GND:
+Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library and call it J1. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors R3 and R4 between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. Also, add decoupling capacitors for VUSB, with the largest value on the left (TODOOOOOOOOOOO explain why, datasheet yada yada). And lastly, put a 1uF capacitor C8 between UCap and GND (TODOTODOTODOTODOTODOTODOTODOTODOTODO justify):
 
-![usb](https://puu.sh/tlJnf/ac2c36306d.png)
+![usb](pics/usb.png)
+
+You can also add labels to make the routing easier later.
 
 Let's connect all the VCC connections together and all the GND connections together. Normally, you would place a capacitor between AVCC and VCC if you were using the built-in ADC (analog to digital converter), but we don't care about that for a keyboard, so just directly connect them. Here's what everything look like at this point:
 
