@@ -84,11 +84,14 @@ Now let's put a 10k resistor on HWB/PE2 pin and connect it to ground. We want a 
 
 ![hwb](https://puu.sh/tlJ3y/fc56dc3b1a.png)
 
-Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. Also, add decoupling capacitors for VUSB, with the largest value on the left (TODOOOOOOOOOOO explain why, datasheet yada yada). And lastly, put a 1uF capacitor between UCap and GND (TODOTODOTODOTODOTODOTODOTODOTODOTODO justify):
+Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. Also, add decoupling capacitors for VUSB, with the largest value on the left (TODOOOOOOOOOOO explain why, datasheet yada yada). 
 
 ![usb](pics/usb.PNG)
 
 Add labels ending with plus and minus to enable differential pair routing later.
+
+According to the datasheet, UCAP is the Internal Regulator Output supply voltage, and should be connected to ground via a 1uF capacitor. Place it as well:
+![ucap](pics/ucap.PNG)
 
 Let's connect all the VCC connections together and all the GND connections together. Normally, you would place a capacitor between AVCC and VCC if you were using the built-in ADC (analog to digital converter), but we don't care about that for a keyboard, so just directly connect them. Here's what everything look like at this point:
 
@@ -151,10 +154,6 @@ The easiest way to get all our footprints onto the board is to read the netlist 
 Now, click "Close". You'll notice that there are now a bunch of footprints in the middle of the screen all stacked on top of each other:
 
 ![stack of footprints](https://puu.sh/tlLzq/db15624813.png)
-
-Before we separate them, let's hide the ratsnest, which is essentially the lines that detail the electrical connections in the board. Go to the "Render" tab on the right and uncheck "Ratsnest", like so:
-
-![hide ratsnest](https://puu.sh/tlLCt/fc0a1c07b4.png)
 
 Here are some useful commands for the PCB editor:
 
