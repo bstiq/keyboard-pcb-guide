@@ -66,9 +66,9 @@ Do Place > Component. Your cursor should turn into a pencil. Click anywhere on t
 
 Click OK, then click on the schematic sheet again to place the component. This is our controller. Edit the component and change the reference from "U?" to "U1". This is the unique name that we're going to use to refer to this particular component.
 
-The next part we'll want to place is the crystal, which is the part that tells the controller how fast to run. Look for the `XTAL_GND` component and place it next to the controller. Change the reference to X1.
+The next part we'll want to place is the crystal, which is the part that tells the controller how fast to run. Look for the `XTAL_GND` component and place it next to the controller.
 
-Next, we're going to want to add 2 decoupling capacitors (`C_SMALL`). These capacitors will basically help prevent the signal to the controller from accumulating too much noise. There's a formula for determining the capacitance you need for these capacitors, but for now, we'll use a crystal with 18pF load capacitance, so these decoupling capacitors will be 22pF. Name them C1 and C2, and change their values to 22p. Also add a GND symbol to represent ground, and connect everything using the wire tool (green line on the right) like so:
+Next, we're going to want to add 2 decoupling capacitors (`C_SMALL`). These capacitors will basically help prevent the signal to the controller from accumulating too much noise. There's a formula for determining the capacitance you need for these capacitors, but for now, we'll use a crystal with 18pF load capacitance, so these decoupling capacitors will be 22pF. Also add a GND symbol to represent ground, and connect everything using the wire tool (green line on the right) like so:
 
 ![crystal](https://puu.sh/tlHHo/8621b549c2.png)
 
@@ -80,11 +80,11 @@ Let's hook up a reset switch. For this, you'll want a switch (`SW_PUSH`) named S
 
 ![reset](https://puu.sh/tlN4L/618c8ec2fc.png)
 
-Now let's put a 10k resistor named R2 on HWB/PE2 pin and connect it to ground. We want a resistor here because it tells the microcontroller that when we press the reset button, we want to go into the bootloader so that we can flash a new layout onto it!
+Now let's put a 10k resistor on HWB/PE2 pin and connect it to ground. We want a resistor here because it tells the microcontroller that when we press the reset button, we want to go into the bootloader so that we can flash a new layout onto it!
 
 ![hwb](https://puu.sh/tlJ3y/fc56dc3b1a.png)
 
-Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library and call it J1. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors R3 and R4 between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. Also, add decoupling capacitors for VUSB, with the largest value on the left (TODOOOOOOOOOOO explain why, datasheet yada yada). And lastly, put a 1uF capacitor C8 between UCap and GND (TODOTODOTODOTODOTODOTODOTODOTODOTODO justify):
+Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. Also, add decoupling capacitors for VUSB, with the largest value on the left (TODOOOOOOOOOOO explain why, datasheet yada yada). And lastly, put a 1uF capacitor between UCap and GND (TODOTODOTODOTODOTODOTODOTODOTODOTODO justify):
 
 ![usb](pics/usb.PNG)
 
