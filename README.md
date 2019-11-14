@@ -86,6 +86,8 @@ Now let's put a 10k resistor on HWB/PE2 pin and connect it to ground. We want a 
 
 Next, let's add our USB port. Add the `USB_mini_micro_B` component from the keyboard_parts library. Connect VUSB to VCC and Uvcc, and put two 22 ohm resistors between the D- and D+ connections. Connect GND and SHIELD together and connect them to ground. Also, add decoupling capacitors for VUSB, with the largest value on the left (TODOOOOOOOOOOO explain why, datasheet yada yada). 
 
+Connect the USB port's D+ and D- to the microcontroller's D+ and D-. Use the no connect tool (blue X on the right) and click on the USB's ID port (it enables the device to perform both master and slave roles, we don't need it).
+
 ![usb](pics/usb.PNG)
 
 Add labels ending with plus and minus to enable differential pair routing later.
@@ -98,7 +100,11 @@ Let's connect all the VCC connections together and all the GND connections toget
 
 Don't forget to auto-annotate the schematic with the ![annot](pics/annotate.PNG) toolbar button. This will number all the components automatically.
 
-Here's what everything look like at this point:
+Then, add a connector (Conn_01x04) that will be enable us to flash the bootloader using ports PF4 to PF7 (refer to the `JTAG Interface and On-chip Debug System` of the datasheet for more information):
+
+![ucap](pics/jtag.PNG)
+
+Here's what everything looks like at this point:
 
 ![ucap](pics/total.PNG)
 
@@ -110,7 +116,7 @@ Now we want to connect this matrix to the controller. We'll use labels for ease 
 
 ![matrix controller](https://puu.sh/tlJZ1/1b38e0274b.png)
 
-Finally, let's label all the unused pins as not connected. Use the no connect tool (blue X on the right) and click on all the unconnected pins on the controller and the ID pin on the USB port. This is also a good chance to make sure you didn't miss any VCC or GND pins earlier! Our final schematic should look like this:
+Finally, let's label all the unused pins as not connected with the no connect tool (blue X on the right), click on all the unconnected pins on the controller. This is also a good chance to make sure you didn't miss any VCC or GND pins earlier! Our final schematic should look like this:
 
 ![final schematic](https://puu.sh/tlNbx/34287f96f2.png)
 
