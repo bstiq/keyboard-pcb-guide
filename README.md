@@ -94,7 +94,11 @@ According to the datasheet, UCAP is the Internal Regulator Output supply voltage
 
 ![ucap](pics/ucap.PNG)
 
-Let's connect all the VCC connections together and all the GND connections together. Normally, you would place a capacitor between AVCC and VCC if you were using the built-in ADC (analog to digital converter), but we don't care about that for a keyboard, so just directly connect them. Here's what everything look like at this point:
+Let's connect all the VCC connections together and all the GND connections together. Normally, you would place a capacitor between AVCC and VCC if you were using the built-in ADC (analog to digital converter), but we don't care about that for a keyboard, so just directly connect them. 
+
+Don't forget to auto-annotate the schematic with the ![annot](pics/annotate.PNG) toolbar button.
+
+Here's what everything look like at this point:
 
 ![ucap](pics/total.PNG)
 
