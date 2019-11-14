@@ -96,7 +96,7 @@ According to the datasheet, UCAP is the Internal Regulator Output supply voltage
 
 Let's connect all the VCC connections together and all the GND connections together. Normally, you would place a capacitor between AVCC and VCC if you were using the built-in ADC (analog to digital converter), but we don't care about that for a keyboard, so just directly connect them. Here's what everything look like at this point:
 
-![overview](https://puu.sh/tlNav/fe594c798c.png)
+![ucap](pics/total.PNG)
 
 Now let's build our switch matrix. For the purposes of this guide, we're simply making a nice and easy 2x2 matrix. We're going to want to use the `KEYSW` and `D` components for our switch and diode components, respectively. Just connect them like you would a handwired board, and don't forget to name them. K1 should correspond to D1, K2 should correspond to D2, and so on:
 
