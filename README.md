@@ -142,6 +142,14 @@ Save the assocations and close the window.
 ## Perform electrical rules check
 Clock on the bug icon in the toolbar (![bug](pics/bug.PNG)) and run the checker to check that everything is wired correctly. If the checker finds some errors like a pin unconnected, fix them before going on to the PCB. 
 
+## Generating Netlist
+
+Now we want to generate the netlist, which is essentially a list of connections in our schematic. Click on the netlist button:
+
+![netlist button](https://puu.sh/tlL9i/077c92b75c.png)
+
+In the dialog that opens, simply click "Generate". Use the default netlist name in the save dialog. If everything was laid out and named properly, KiCad should not ask you about annotations. If so, click "Cancel" and double check all of your references then try again.
+
 ## PCB
 
 From the schematic editor, create a new PCB layout using the toolbar button ![pcb](pics/pcb.PNG). Kicad will ask you if you wish to create a PCB, click Yes.
@@ -151,14 +159,13 @@ Now we get to create our PCB! You should be greeted by a blank PCB editor:
 
 The first thing we're going to do is double check that all of our footprints are still here. Go to Preferences > Footprint Libraries Manager and make sure that all the footprint libraries you imported earlier are still there. If not, then simply import them again.
 
-TODO Cannot update the PCB because PCBNew is running in standalone mode
-The easiest way to get all our footprints onto the board is to read the netlist we generated earlier. Click on the `Update PCB from schematic` button (![update](pics/update.PNG)). A bunch of messages should show up, and the dialog should look something like:
+The easiest way to get all our footprints onto the board is to read the netlist we generated earlier. Click on the netlist button, which should look the same as before, and simply click on "Read Current Netlist". A bunch of messages should show up, and the dialog should look something like:
 
-![read netlist](https://puu.sh/tlLxe/db0c0985c2.png)
+![read netlist](pics/readnetlist.PNG)
 
-Now, click "Close". You'll notice that there are now a bunch of footprints in the middle of the screen all stacked on top of each other:
+Now, click "Update PCB" and "Close". Kicad will prompt you to place the footprints, click anywhere to place them:
 
-![stack of footprints](https://puu.sh/tlLzq/db15624813.png)
+![stack of footprints](pics/schem.PNG)
 
 Here are some useful commands for the PCB editor:
 
@@ -172,23 +179,30 @@ del: delete the footprint
 esc: abort!
 ```
 
-Let's separate our footprints and put them on the correct side of the PCB. The only footprints that will be on the "front" of the PCB will be the switch footprints. Everything else will be on the "back" of the PCB, so make sure everything but the switches are flipped:
+For this tutorial we will keep the components on the front side of the pcb, so that they are visible. This is an aesthetic hcoice, you may choose to put them on the back using the `f` (`flip footprint`) shortcut.
 
-![separated footprints](https://puu.sh/tlLUh/de9d45ca47.png)
+We do however want the diodes on the back of the pcb, otherwise they would collide with the switches.
 
-### Component Placement
+### Design rules
 
-Arrange your switch footprints as shown if you haven't already. Then, edit each of the switch footprints and change the "Move and Place" option to "Lock footprint" so that we don't accidentally move them:
+Go to `File > Board Setup`, and in `Design Rules > Net Classes`, set the `Track width` and `dPair Width` to 0.5mm.
 
-![move and place](https://puu.sh/tlLVU/cbfed7c75c.png)
+### Diodes
 
-Let's put our diodes under our switches first (**THIS PLACEMENT WILL ONLY WORK FOR SMD DIODES**). Make sure each diode corresponds to its switch:
+Let's put our diodes under our switches first, and make sure they are flipped (**THIS PLACEMENT WILL ONLY WORK FOR SMD DIODES**). Make sure each diode corresponds to its switch:
 
-![diodes](https://puu.sh/tlMd2/7879338387.png)
+![diodes](pics/diodes.PNG)
 
-Let's move our microcontroller next to the switches, like so:
+### MicroController and USB port
 
-![microcontroller next to switches](https://puu.sh/tlMdB/2a71dd8102.png)
+Let's move our microcontroller next to the switches.
+
+Place the usb port close to it, for example here on top - and make sure the ports 3 and 4 of the microcontroller face the usb port.
+
+Add the two resistors inbetween, using the Ratsnest to make sure they're oriented correctly:
+
+![microcontroller and usb](pics/usb2.PNG)
+
 
 Now the most important part of PCB design: the crystal. We need to make sure the traces to the crystal are as short as possible and that they are roughly the same length. An easy way to tell what pads are supposed to connect to what pads is to use the "highlight net" tool on the right. You use the tool and simply click on a pad, and it and the pads it connects to are highlighted. For this example, I put the crystal above the microcontroller and rotated it by 45 degrees:
 
